@@ -8,5 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: build
+        run: cargo build --release
+      - name: exec
+        run: ./target/release/foo
+      - name: list
+        run: ls -al
       - name: script
         run: ./scripts/start.sh -p foo bar
